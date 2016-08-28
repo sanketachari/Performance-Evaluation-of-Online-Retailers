@@ -3,7 +3,7 @@
 Technology Used For Data Analysis :- R Programming
 Tool Used:-  R Studio
 
-Following reports generated
+Following reports are generated:
 
 1. Analysis of Website A data.pdf
 2. Analysis of Website B data.pdf
