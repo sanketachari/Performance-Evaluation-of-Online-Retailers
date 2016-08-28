@@ -1,0 +1,199 @@
+---
+title: "Analysis of Website C Data"
+author: "Sanket Achari"
+date: "Tuesday, April 21, 2015"
+output: html_document
+---
+
+### Insights of following parameters are present in this report
+- Reach
+- Impression 
+- Clicks, Clicks Through Rate (CTR)
+- Likes, Comments & Shares
+
+
+```{r,echo=FALSE, warning=FALSE, cache=TRUE, message=FALSE,comment= NA}
+library(xlsx)
+library(dplyr)
+library(ggplot2)
+data <- read.xlsx("Data Analytics case study (2).xlsx",sheetName = "Sheet1")
+names(data)[8] <- paste("CTR")
+columns <- colnames(data)
+```
+
+
+```{r, echo=FALSE}
+webC_data <- data[which(data$Website == "Website C"),]
+```
+
+
+### Reach 
+```{r,echo=FALSE, cache =TRUE,message=FALSE ,fig.height= 8, fig.width= 12, fig.align='center'}
+g1 <- ggplot(webC_data, aes(x = Post.about,y = Reach/1000, fill = Post.about))+
+      geom_bar(stat = "identity", col= "black", width = 1) + 
+      theme(axis.text.x = element_text(angle = 60,hjust = 1)) +
+      xlab("Mobile Phones") + ylab("Reach in thousands") +
+      ggtitle("Website - C Reach Vs Mobile Phones")
+g1
+
+```
+
+ Top 5 posts which has got maximum Reach
+```{r, echo=FALSE,comment= NA}
+webC_Reach <- webC_data[order(webC_data$Reach,decreasing = TRUE), ] 
+print(webC_Reach[1:5,c(1,2,4)],row.names = FALSE)
+```
+
+Top 5 posts which has got minimum Reach
+```{r, echo=FALSE,comment= NA}
+webC_Reach <- webC_data[order(webC_data$Reach,decreasing = FALSE), ] 
+print(webC_Reach[1:5,c(1,2,4)],row.names = FALSE)
+```
+
+### Impression
+
+
+Top 3 posts which has got maximum Impressions
+```{r, echo=FALSE,comment= NA}
+webC_Impressions <- webC_data[order(webC_data$Impressions,decreasing = TRUE), ] 
+print(webC_Impressions[1:3,c(1,2,6)],row.names = FALSE)
+```
+
+Top 3 posts which has got minimum Impressions
+```{r, echo=FALSE,comment= NA}
+webC_Impressions <- webC_data[order(webC_data$Impressions,decreasing = FALSE), ] 
+print(webC_Impressions[1:3,c(1,2,6)],row.names = FALSE)
+```
+
+
+### Clicks
+```{r, echo=FALSE, cache =TRUE,message=FALSE ,fig.height= 6.5, fig.width= 12, fig.align='center'}
+g2 <- ggplot(webC_data, aes(x = Post.about,y = Clicks/100, fill = Post.about))+
+      geom_bar(stat = "identity", col= "black", width = 1) + 
+      theme(axis.text.x = element_text(angle = 60,hjust = 1)) +
+      xlab("Mobile Phones") + ylab("Clicks in hundreds") +
+      ggtitle("Website - C Clicks Vs Mobile Phones")
+g2
+
+```
+
+Top 5 posts which has got maximum Clicks
+```{r, echo=FALSE,comment= NA}
+webC_Clicks <- webC_data[order(webC_data$Clicks,decreasing = TRUE), ] 
+print(webC_Clicks[1:5,c(1,2,7)],row.names = FALSE)
+```
+
+Top 5 posts which has got minimum Clicks
+```{r, echo=FALSE,comment= NA}
+webC_Clicks <- webC_data[order(webC_data$Clicks,decreasing = FALSE), ] 
+print(webC_Clicks[1:5,c(1,2,7)],row.names = FALSE)
+```
+
+### Click- Through Rate (CTR)
+
+```{r,echo=FALSE,cache =TRUE,message=FALSE ,fig.height= 6, fig.width= 12, fig.align='center'}
+g3 <- ggplot(webC_data, aes(x = Post.about,y = CTR, 
+                            fill = Post.about))+ 
+      geom_bar(stat = "identity", col= "black", width = 1) +
+      theme(axis.text.x = element_text(angle = 60,hjust = 1)) +
+      xlab("Mobile Phones") + ylab("Click- Through Rate (CTR)") +
+      ggtitle("Website - C  Click- Through Rate (CTR) Vs Mobile Phones")
+g3
+
+```
+
+
+Top 5 posts which has got maximum Click- Through Rate (CTR)
+```{r, echo=FALSE,comment= NA}
+webC_CTR <- webC_data[order(webC_data$CTR,decreasing = TRUE), ] 
+print(webC_CTR[1:5,c(1,2,8)],row.names = FALSE)
+```
+
+Top 5 posts which has got minimum Click- Through Rate (CTR)
+```{r, echo=FALSE,comment= NA}
+webC_CTR <- webC_data[order(webC_data$CTR,decreasing = FALSE), ] 
+print(webC_CTR[1:5,c(1,2,8)],row.names = FALSE)
+```
+
+
+### Likes
+
+### Highest Likes on the post
+```{r, echo=FALSE}
+webC_Likes <- webC_data[order(webC_data$Post.Likes,decreasing = TRUE), ] 
+webC_Likes <- webC_Likes[1:10,] 
+```
+
+```{r,echo=FALSE,cache =TRUE,message=FALSE ,fig.height= 6, fig.width= 6, fig.align='center'}
+g4 <- ggplot(webC_Likes, aes(reorder(Post.about,desc(Post.Likes)),Post.Likes))+
+      geom_bar(stat = "identity", width = 1, color = "black", fill = "darkgreen") + 
+      theme(axis.text.x = element_text(angle = 60,hjust = 1)) +
+      xlab("Mobile Phones") + ylab("Number of Likes") +
+      ggtitle("Website - C Number of Likes Vs Mobile Phones")
+g4
+
+```
+```{r, echo=FALSE,comment= NA}
+print(webC_Likes[1:5,c(1,2,9)],row.names = FALSE)
+```
+
+
+### Lowest Likes on the post
+
+```{r,echo=FALSE,cache =TRUE,message=FALSE ,fig.height= 6, fig.width= 6, fig.align='center',comment= NA}
+webC_Likes <- webC_data[order(webC_data$Post.Likes,decreasing = FALSE), ] 
+webC_Likes <- webC_Likes[1:10,] 
+
+g5 <- ggplot(webC_Likes, aes(reorder(Post.about,-desc(Post.Likes)),Post.Likes))+
+      geom_bar(stat = "identity", width = 1, color = "black", fill = "red") + 
+      theme(axis.text.x = element_text(angle = 60,hjust = 1)) +
+      xlab("Mobile Phones") + ylab("Number of Likes") +
+      ggtitle("Website - C Number of Likes Vs Mobile Phones")
+g5
+
+print(webC_Likes[1:5,c(1,2,9)],row.names = FALSE)
+```
+
+
+
+
+### Comments
+
+### Highest Comments on the post
+
+```{r,echo=FALSE,cache =TRUE,message=FALSE ,fig.height= 8, fig.width= 8, fig.align='center',comment= NA}
+webC_Comments <- webC_data[order(webC_data$Post.Comments,decreasing = TRUE), ] 
+webC_Comments <- webC_Comments[1:10,] 
+
+g4 <- ggplot(webC_Comments, aes(reorder(Post.about,desc(Post.Comments)),Post.Comments))+
+      geom_bar(stat = "identity", width = 1, color = "black", fill = "darkgreen") + 
+      theme(axis.text.x = element_text(angle = 60,hjust = 1)) +
+      xlab("Mobile Phones") + ylab("Number of Comments") +
+      ggtitle("Website - C Number of Comments Vs Mobile Phones")
+g4
+
+print(webC_Comments[1:5,c(1,2,10)],row.names = FALSE)
+```
+
+### Many posts have got zero comments
+```{r,echo=FALSE,cache =TRUE,message=FALSE ,fig.height= 6, fig.width= 6, fig.align='center',comment= NA}
+webC_Comments <- webC_data[order(webC_data$Post.Comments,decreasing = FALSE), ] 
+webC_Comments <- webC_Comments[1:10,] 
+print(webC_Comments[1:5,c(1,2,10)],row.names = FALSE)
+```
+
+
+### Highest Shares of the post
+
+```{r,echo=FALSE,cache =TRUE,message=FALSE ,fig.height= 6, fig.width= 6, fig.align='center',comment= NA}
+webC_Shares <- webC_data[order(webC_data$Post.Shares,decreasing = TRUE), ] 
+webC_Shares <- webC_Shares[1:10,] 
+print(webC_Shares[1:5,c(1,2,11)],row.names = FALSE)
+```
+
+### Many posts have got zero shares
+```{r,echo=FALSE,cache =TRUE,message=FALSE ,fig.height= 6, fig.width= 6, fig.align='center',comment= NA}
+webC_Shares <- webC_data[order(webC_data$Post.Shares,decreasing = FALSE), ] 
+webC_Shares <- webC_Shares[1:10,] 
+print(webC_Shares[1:5,c(1,2,11)],row.names = FALSE)
+```
