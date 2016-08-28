@@ -3,7 +3,7 @@ library(xlsx)
 library(dplyr)
 library(ggplot2)
 library(gridExtra)
-data <- read.xlsx("Data Analytics case study (2).xlsx",sheetName = "Sheet1")
+data <- read.xlsx("Data Analytics case study.xlsx",sheetName = "Sheet1")
 names(data)[8] <- paste("CTR")
 columns <- colnames(data)
 
