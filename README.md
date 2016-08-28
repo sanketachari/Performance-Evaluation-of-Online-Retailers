@@ -12,4 +12,4 @@ Following reports are generated:
 
 R MarkDown file is used to generate above reports.
 
-If you want to see the code for analysis of data please look into .rmd files.
+If you want to see the code for analysis of data please look into .rmd files in Code directory.
