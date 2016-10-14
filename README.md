@@ -1,6 +1,6 @@
 # Performance Evaluation of Online Retailers
 
-Technology Used For Data Analysis :- R Programming
+Technology Used For Data Analysis :- R Programming Language, R MarkDown Files, RStudio
 
 Following reports are generated:
 
