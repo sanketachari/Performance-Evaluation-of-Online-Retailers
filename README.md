@@ -4,11 +4,11 @@ Technology Used For Data Analysis :- R Programming
 
 Following reports are generated:
 
-1. Analysis of Website A data.pdf
-2. Analysis of Website B data.pdf
-3. Analysis of Website C data.pdf
-4. Report on Performances of Websites.pdf
+1. [Analysis of Website A data.pdf](https://github.com/sanketachari/Performance_Evaluation_of_Online_Retailers/blob/master/Business%20Insights%20to%20Websites/Analysis%20of%20Website%20A%20data.pdf)
+2. [Analysis of Website B data.pdf](https://github.com/sanketachari/Performance_Evaluation_of_Online_Retailers/blob/master/Business%20Insights%20to%20Websites/Analysis%20of%20Website%20B%20data.pdf)
+3. [Analysis of Website C data.pdf](https://github.com/sanketachari/Performance_Evaluation_of_Online_Retailers/blob/master/Business%20Insights%20to%20Websites/Analysis%20of%20Website%20C%20Data.pdf)
+4. [Report on Performances of Websites.pdf](https://github.com/sanketachari/Performance_Evaluation_of_Online_Retailers/blob/master/Business%20Insights%20to%20Websites/Report%20on%20Performances%20of%20Websites.pdf)
 
 R MarkDown file is used to generate above reports.
 
-If you want to see the code for analysis of data please look into .rmd files in Code directory.
+[Click here](https://github.com/sanketachari/Performance_Evaluation_of_Online_Retailers/tree/master/Code) to see the code.
