@@ -2,6 +2,8 @@
 
 Technology Used For Data Analysis :- R Programming Language, R MarkDown Files, RStudio
 
+[Click Here](https://github.com/sanketachari/Performance_Evaluation_of_Online_Retailers/blob/master/Case%20Study%20Problem%20Statement.pdf) for Problem Statement
+
 Following reports are generated:
 
 1. [Analysis of Website A data.pdf](https://github.com/sanketachari/Performance_Evaluation_of_Online_Retailers/blob/master/Business%20Insights%20to%20Websites/Analysis%20of%20Website%20A%20data.pdf)
