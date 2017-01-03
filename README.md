@@ -13,4 +13,4 @@ Following reports are generated:
 
 R MarkDown file is used to generate above reports.
 
-[Click here](https://github.com/sanketachari/Performance_Evaluation_of_Online_Retailers/tree/master/Code) to see the code.
+[Click Here](https://github.com/sanketachari/Performance_Evaluation_of_Online_Retailers/tree/master/Code) to see the code.
